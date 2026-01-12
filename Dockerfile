@@ -24,7 +24,7 @@ COPY docs/ ./docs/
 COPY faiss_index/ ./faiss_index/
 
 # Expose Flask port
-EXPOSE 5000
+EXPOSE 5001
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
