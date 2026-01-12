@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  f1-rag-api:
+    build: .
+    container_name: f1-rag-chatbot
+    ports:
+      - "5001:5001"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - FLASK_ENV=production
+    volumes:
+      # Mount source for development (optional, remove in production)
+      - ./src:/app/src
+      # Persist FAISS index
+      - ./faiss_index:/app/faiss_index
+      # Mount docs directory
+      - ./docs:/app/docs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
