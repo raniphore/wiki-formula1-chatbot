@@ -31,4 +31,4 @@ ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=src/api/app.py
 
 # Run the Flask app
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=5001"]

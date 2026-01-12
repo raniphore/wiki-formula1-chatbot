@@ -114,4 +114,3 @@ if __name__ == "__main__":
     print(f"Starting F1 RAG Chatbot API...")
     print(f"API Key configured")
     app.run(host="0.0.0.0", port=5001, debug=os.getenv("FLASK_DEBUG", False))
-
